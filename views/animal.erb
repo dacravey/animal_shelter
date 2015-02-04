@@ -1,0 +1,32 @@
+
+<h2>Name: <%= @animal.animal_name %></h2>
+
+<h3>Type: <%= @animal.animal_type %></h3>
+<h3>Gender: <%= @animal.gender %></h3>
+<h3>Breed: <%= @animal.breed %></h3>
+<h3>Date Admitted: <%= @animal.date_of_admit %></h3>
+
+<br />
+<form action="/animal/<%= @animal.id %>" method="post"
+  name= "_method" type="hidden" value="patch">
+
+  <label for="animal_name">Edit the animal's name: </label>
+  <input id="animal_name" name= "animal_name" type="text">
+  <label for="animal_type">Edit animal type: </label>
+  <input id="animal_type" name="animal_type" type="text">
+  <label for="gender">Edit gender: </label>
+  <input id="breed"> Edit breed: </label>
+  <input id="breed" name="breed" type="text">
+  <label for="date_of_admit">Edit admission date: </label>
+  <input id="date_of_admit" name="date_of_admit" type="date">
+
+  <button type="submit">Update Record</button>
+
+</form>
+
+<form action="/animal/<%= @animal.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit">Adopted! (remove from list)</button>
+</form>
+
+<a href="/"> Go Home </a>

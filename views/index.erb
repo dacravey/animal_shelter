@@ -1,0 +1,50 @@
+<h1>Furry Paws Animal Adoption Center</h1>
+
+<h3>These animals need homes:</h3>
+
+<ul>
+  <% @animals.each do |animal| %>
+  <li><a href="/animal/<%= animal.id %>"><%= animal.animal_name.titleize() %></a></li>
+  <% end %>
+</ul>
+
+<h2>Add a new animal</h2>
+
+<form action="/add_animal" method="post">
+  <label for="animal_name">Animal name:</label>
+  <input id="animal_name" name="animal_name" type="text">
+
+  <label for="gender">Gender:</label>
+  <input id="gender" name="gender" type="text">
+
+  <label for="date_of_admit">Date of Admission:</label>
+  <input id="date_of_admit" name="date_of_admit" type="date">
+
+  <label for="animal_type">Animal type:</label>
+  <input id="animal_type" name="animal_type" type="text" placeholder="eg. kitten">
+
+  <label for="breed">Animal breed:</label>
+  <input id="breed" name="breed" type="text">
+
+  <button type="submit">Add Future Adoptee</button>
+</form>
+
+<h3>Current client list: </h3>
+
+  <ul>
+    <% @customers.each() do |customer| %>
+    <li><a href="/customer/<%= customer.id %>"><%= customer.customer_name.titleize() %></a></li>
+    <% end %>
+  </ul>
+
+<form action="/add_customer" method="post">
+  <label for="customer_name">Name: </label>
+  <input id="customer_name" name="customer_name" type="text">
+
+  <label for="type_preference">Type of animal preferred: </label>
+  <input id="type_preference" name="type_preference" type="text" placeholder="eg. puppy">
+
+  <label for="breed_preference">Breed preferred: </label>
+  <input id="breed_preference" name="breed_preference" type="text">
+  <button type="submit">Add Client</button>
+</form>
