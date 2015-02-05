@@ -6,8 +6,8 @@
 <h3>Breed Preferred: <%= @customer.breed_preference %></h3>
 
 <br />
-<form action="/customer/<%= @customer.id %>" method="post"
-  name= "_method" type="hidden" value="patch">
+<form action="/customer/<%= @customer.id %>" method="post">
+  <input name= "_method" type="hidden" value="patch">
 
   <label for="customer_name">Edit the customer's name: </label>
   <input id="customer_name" name= "customer_name" type="text">
@@ -21,6 +21,7 @@
 
 </form>
 
+</br />
 <form action="/customer/<%= @customer.id %>" method="post">
   <input name="_method" type="hidden" value="delete">
   <button type="submit">Found a friend! (remove from list)</button>

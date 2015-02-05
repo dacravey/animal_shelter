@@ -38,13 +38,13 @@ patch('/animal/:id') do
   erb(:animal)
 end
 
-delete('animal/:id') do
+delete('/animal/:id') do
     animal = Animal.find(params.fetch("id").to_i)
     animal.delete
     redirect('/')
 end
 
-post '/add_customer' do
+post('/add_customer') do
   customer_name = params.fetch("customer_name")
   type_preference = params.fetch("type_preference")
   breed_preference = params.fetch("breed_preference")
@@ -56,15 +56,22 @@ post '/add_customer' do
   end
 end
 
-get '/customer/:id' do
+get('/customer/:id') do
   @customer = Customer.find(params.fetch("id"))
   erb :customer
 end
 
-patch '/customer/:id' do
-  customer = Customer.find(params.fetch("id"))
-  params['check'].each do |check|
-    customer.bands << Animal.find(check.to_i)
-  end
-  redirect back
+patch('/customer/:id') do
+  customer_name = params.fetch("customer_name")
+  type_preference = params.fetch("type_preference")
+  breed_preference = params.fetch("breed_preference")
+  @customer = Customer.find(params.fetch("id").to_i)
+  @customer.update({customer_name: customer_name, type_preference: type_preference, breed_preference: breed_preference})
+  erb(:customer)
+end
+
+delete('/customer/:id') do
+  customer = Customer.find(params.fetch("id").to_i)
+  customer.delete
+  redirect('/')
 end
