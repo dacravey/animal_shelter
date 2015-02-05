@@ -1,3 +1,11 @@
 
 
-<h2> here are all the <%= @breeds %></h2>
+<h2> Here are all our current <%= @breed %> breed friends:</h2>
+
+<ul>
+  <% @breeds.each() do |breed| %>
+  <li><a href="/animal/<%= breed.id %>"><%= breed.animal_name().titleize() %></a></li>
+  <% end %>
+</ul>
+
+<a href="/"> Go home </a>

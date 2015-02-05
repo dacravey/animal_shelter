@@ -79,7 +79,7 @@ end
 
 
 get('/breeds/:id') do
-  breed_type = params.fetch("breed")
-  @breeds = Animal.where("breed = ?", params[:breed])
+  @breed = params.fetch("id")
+  @breeds = Animal.where("breed = ?", @breed)
   erb(:breeds)
 end

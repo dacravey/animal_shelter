@@ -51,11 +51,11 @@
 
 
 
-<p>Click on a breed to see the who's here:</p>
+<p>Click on a breed to see the who's here today:</p>
 
 
 <ul>
   <% @breeds.each do |breed| %>
-  <li><a href="/breeds/<%= breed.id() %>"><%= breed.breed() %></a></li>
+  <li><a href="/breeds/<%= breed.breed %>"><%= breed.breed().titleize() %></a></li>
   <% end %>
 </ul>
