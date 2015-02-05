@@ -5,6 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 get('/') do
   @animals = Animal.all()
   @customers = Customer.all()
+  @breeds = Animal.select("breed").uniq()
   erb(:index)
 end
 
@@ -74,4 +75,11 @@ delete('/customer/:id') do
   customer = Customer.find(params.fetch("id").to_i)
   customer.delete
   redirect('/')
+end
+
+
+get('/breeds/:id') do
+  breed_type = params.fetch("breed")
+  @breeds = Animal.where("breed = ?", params[:breed])
+  erb(:breeds)
 end

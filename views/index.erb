@@ -48,3 +48,14 @@
   <input id="breed_preference" name="breed_preference" type="text">
   <button type="submit">Add Client</button>
 </form>
+
+
+
+<p>Click on a breed to see the who's here:</p>
+
+
+<ul>
+  <% @breeds.each do |breed| %>
+  <li><a href="/breeds/<%= breed.id() %>"><%= breed.breed() %></a></li>
+  <% end %>
+</ul>
