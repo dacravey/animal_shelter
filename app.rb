@@ -82,3 +82,19 @@ get('/breeds/:id') do
   @breeds = Animal.where("breed = ?", @breed)
   erb(:breeds)
 end
+
+get('/appointment/:id') do
+  @customer = Customer.find(params.fetch("id"))
+  erb(:appointment)
+end
+
+patch '/appointments/:id' do
+  @customer = Customer.find(params.fetch("id"))
+  @animal = Animal.find(params.fetch("id"))
+  animal =  Animal.find( params.fetch("id"))
+  customer = Customer.find(params.fetch("id"))
+  params['check'].each do |check|
+    customer.animals << Animal.find(check.to_i)
+  end
+  redirect back
+end

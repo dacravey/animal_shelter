@@ -1,25 +1,11 @@
 <h2>Appointments</h2>
 
-<h2><%= @appointment.appointment_id() %></h2>
+<h2><%= @customer.customer_name.titleize() %>'s scheduled appointments</h2>
 
-<% if @appointment.animals().any?() %>
   <ul>
-    <% @appointment.animals().each() do |animal| %>
-      <li><a href="/appointments/<%= animal.id() %>"><%= animal.animal_name() %></a></li>
+    <%= @customer.animals.each do |animal| %>
+      <li><%= animal.animal_name %>  Breed: <%= animal.breed %></li>
     <% end %>
   </ul>
-<% else %>
-  <p>There are no apointments yet!</p>
-<% end %>
-
-<!-- <form action="/appointments" method="post">
-  <input type="hidden" name="category_id" value="<%= @category.id() %>">
-  <div class="form-group">
-    <label class="form-label" for="animal_name">Add new appointment:</label>
-    <input class="form-control" id="animal_name" type="text" name="animal_name">
-  </div>
-  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
-</form> -->
-
 
 <a href="/">Return to Main Page</a>

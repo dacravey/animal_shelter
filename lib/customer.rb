@@ -3,11 +3,11 @@ class Customer < ActiveRecord::Base
   validates(:customer_name, :presence => true)
   validates(:type_preference, :presence => true)
   validates(:breed_preference, :presence =>true)
-  before_save(:titlecase_customer_name)
+  before_save(:capitalize_customer_name)
 
   private
 
-  define_method(:titlecase_customer_name) do
-    self.customer_name=(customer_name().titlecase())
+  define_method(:capitalize_customer_name) do
+    self.customer_name=(customer_name().capitalize())
   end
 end

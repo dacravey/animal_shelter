@@ -27,4 +27,23 @@
   <button type="submit">Found a friend! (remove from list)</button>
 </form>
 
+
+<h2>Check the animals you want to see: </h2>
+<form action="/appointments/<%= @customer.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <% Animal.all.each do |animal| %>
+  <input type="checkbox" name="check[]" value="<%= animal.id %>"><%= animal.animal_name.titleize() %> <em>(Breed: <%= animal.breed.titleize() %>)</em><br>
+  <% end %>
+  <br />
+  <button type="submit">Add animal(s) to view</button>
+</form>
+
+
+
+<h4>Scheduled Viewings: </h4>
+<ul>
+  <% @customer.animals.each do |animal| %>
+  <li><%= animal.animal_name %>   (Breed:  <%= animal.breed %>)</li>
+  <% end %>
+</ul>
 <a href="/"> Go Home </a>
