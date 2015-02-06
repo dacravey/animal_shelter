@@ -2,8 +2,8 @@
 
 <h2>Name: <%= @customer.customer_name.titleize %></h2>
 
-<h3>Type Preferred: <%= @customer.type_preference %></h3>
-<h3>Breed Preferred: <%= @customer.breed_preference %></h3>
+<h3>Type Preferred: <%= @customer.type_preference.titleize %></h3>
+<h3>Breed Preferred: <%= @customer.breed_preference.titleize %></h3>
 
 <br />
 <form action="/customer/<%= @customer.id %>" method="post">

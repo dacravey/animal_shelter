@@ -77,7 +77,6 @@ delete('/customer/:id') do
   redirect('/')
 end
 
-
 get('/breeds/:id') do
   @breed = params.fetch("id")
   @breeds = Animal.where("breed = ?", @breed)
