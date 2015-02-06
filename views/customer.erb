@@ -38,7 +38,17 @@
   <button type="submit">Add animal(s) to view</button>
 </form>
 
+<br />
+<form action="/add_appointment/" method="post">
+  <label for="appointment_date">Choose a date:</label>
+  <input id="appointment_date" name="appointment_date" type="date">
 
+  <label for="appointment_time">Time:</label>
+  <input id="appointment_time" name="appointment_time" type="time">
+
+
+  <button type="submit">Schedule Appointment </button>
+</form>
 
 <h4>Scheduled Viewings: </h4>
 <ul>

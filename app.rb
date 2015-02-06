@@ -98,3 +98,11 @@ patch '/appointments/:id' do
   end
   redirect back
 end
+
+
+post('/add_appointment') do
+  appointment_date = params.fetch("appointment_date")
+  appointment_time = params.fetch("appointment_time")
+  @appointment = Appointment.new({appointment_date: appointment_date, appointment_time: appointment_time})
+  redirect('/')
+end
