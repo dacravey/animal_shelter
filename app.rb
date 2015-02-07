@@ -99,10 +99,17 @@ patch '/appointments/:id' do
   redirect back
 end
 
-
-post('/add_appointment') do
+post('/add_appointment/:id') do
+  @customer = Customer.find(params.fetch("id"))
+  @animal = Animal.find(params.fetch("id"))
+  @appointment = Appointment.find(params.fetch("id"))
+  @appointments = Appointment.all()
   appointment_date = params.fetch("appointment_date")
   appointment_time = params.fetch("appointment_time")
   @appointment = Appointment.new({appointment_date: appointment_date, appointment_time: appointment_time})
-  redirect('/')
+  if @appointment.save()
+    redirect('/')
+  else
+    erb(:errors)
+  end
 end
